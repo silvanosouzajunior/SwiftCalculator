@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var historicalDisplay: UILabel!
     
     var userIsInTheMiddeOfTypingANumber = false
+    var brain = CalculatorBrain()
     let locale = NSLocale(localeIdentifier: "en_US")
     let formater = NSNumberFormatter()
     let M_PI = 3.14
@@ -40,55 +41,33 @@ class ViewController: UIViewController {
 
     @IBAction func operate(sender: UIButton) {
         historicalDisplay.text = historicalDisplay.text! + sender.currentTitle!
-        let operation = sender.currentTitle!
-        
-        decimalWasTyped = false
         
         if userIsInTheMiddeOfTypingANumber {
             enter()
         }
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            } else {
+                displayValue = 0
+            }
+        }
         
-        switch operation {
-        case "×": performOperation { $0 * $1 }
-        case "÷": performOperation { $0 / $1 }
-        case "+": performOperation { $0 + $1 }
-        case "−": performOperation { $0 - $1 }
-        case "√": performOperation { sqrt($0) }
-        case "sin": performOperation { sin(CDouble($0)) }
-        case "cos": performOperation { cos(CDouble($0)) }
-        default: break
-            
-        }
+        decimalWasTyped = false
+        
     }
-    
-    private func performOperation(operation: (Double, Double) -> Double){
-        if operandStack.count >= 2 {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performOperation(operation: Double -> Double) {
-        if operandStack.count >= 1 {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func multiply(op1: Double, op2:Double) -> Double {
-        return op1 * op2
-    }
-    
-    
-    var operandStack = Array<Double>()
     
     @IBAction func enter() {
         historicalDisplay.text = historicalDisplay.text! + " "
         
         userIsInTheMiddeOfTypingANumber = false
         decimalWasTyped = false
-        operandStack.append(displayValue)
-        print("operandStack = \(operandStack)")
+        
+        if let result = brain.pushOperand(displayValue){
+            displayValue = result
+        } else {
+            displayValue = 0
+        }
     }
     
     var displayValue: Double {

@@ -13,6 +13,7 @@
 		660FBB8C1B288BE700ECF130 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660FBB8B1B288BE700ECF130 /* Images.xcassets */; };
 		660FBB8F1B288BE700ECF130 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 660FBB8D1B288BE700ECF130 /* LaunchScreen.xib */; };
 		660FBB9B1B288BE700ECF130 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660FBB9A1B288BE700ECF130 /* CalculatorTests.swift */; };
+		664652B01B29F145001F47DE /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664652AF1B29F145001F47DE /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		660FBB941B288BE700ECF130 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		660FBB991B288BE700ECF130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		660FBB9A1B288BE700ECF130 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		664652AF1B29F145001F47DE /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				660FBB861B288BE700ECF130 /* ViewController.swift */,
+				664652AF1B29F145001F47DE /* CalculatorBrain.swift */,
 				660FBB881B288BE700ECF130 /* Main.storyboard */,
 				660FBB821B288BE700ECF130 /* Supporting Files */,
 			);
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664652B01B29F145001F47DE /* CalculatorBrain.swift in Sources */,
 				660FBB871B288BE700ECF130 /* ViewController.swift in Sources */,
 				660FBB851B288BE700ECF130 /* AppDelegate.swift in Sources */,
 			);
