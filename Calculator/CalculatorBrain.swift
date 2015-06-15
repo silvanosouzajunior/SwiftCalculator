@@ -42,13 +42,13 @@ class CalculatorBrain {
         knowOps["×"] = Op.BinaryOperation("×", *)
         knowOps["÷"] = Op.BinaryOperation("÷") {$0 / $1}
         knowOps["+"] = Op.BinaryOperation("+", +)
-        knowOps["−"] = Op.BinaryOperation("−") {$0 - $1}
+        knowOps["−"] = Op.BinaryOperation("−") {$1 - $0}
         knowOps["√"] = Op.UnaryOperation("√", sqrt)
 
     }
     
     private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
-        if !ops.isEmpty {
+        if !ops.isEmpty {0
             var remainingOps = ops
             let op = remainingOps.removeLast()
             switch op {
